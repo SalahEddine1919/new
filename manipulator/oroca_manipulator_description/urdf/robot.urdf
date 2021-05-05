@@ -1,0 +1,402 @@
+<?xml version="1.0" ?>
+<robot name="oroca_manipulator">
+
+    <link name="world"/>
+    <link name="base_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://oroca_manipulator_description/meshes/base_link.stl" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://oroca_manipulator_description/meshes/base_link.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="1.0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+    </link>
+
+    <joint name="base_link_fixed" type="fixed">
+        <parent link="world"/>
+        <child link="base_link"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
+    <link name="arm_link1">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://oroca_manipulator_description/meshes/arm_link1.stl" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://oroca_manipulator_description/meshes/arm_link1.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="1.0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+    </link>
+
+    <joint name="arm_joint1" type="revolute">
+        <parent link="base_link"/>
+        <child link="arm_link1"/>
+        <origin xyz="0 0 0.068" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit effort="10" velocity="1.0" lower="-3.14" upper="3.14"/>
+    </joint>
+   
+
+    <link name="arm_link2">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://oroca_manipulator_description/meshes/arm_link2.stl" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://oroca_manipulator_description/meshes/arm_link2.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="1.0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+    </link>
+
+    <joint name="arm_joint2" type="revolute">
+        <parent link="arm_link1"/>
+        <child link="arm_link2"/>
+        <origin xyz="0 0 0.129" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+        <limit effort="10" velocity="1.0" lower="-1.57" upper="1.57"/>
+    </joint>
+    
+
+    <link name="arm_link3">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://oroca_manipulator_description/meshes/arm_link3.stl" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://oroca_manipulator_description/meshes/arm_link3.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="1.0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+    </link>
+
+    <joint name="arm_joint3" type="revolute">
+        <parent link="arm_link2"/>
+        <child link="arm_link3"/>
+        <origin xyz="0 0 0.175" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+        <limit effort="10" velocity="1.0" lower="-1.57" upper="1.57"/>
+    </joint>
+    
+
+    <link name="arm_link4">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://oroca_manipulator_description/meshes/arm_link4.stl" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://oroca_manipulator_description/meshes/arm_link4.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="1.0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+    </link>
+
+    <joint name="arm_joint4" type="revolute">
+        <parent link="arm_link3"/>
+        <child link="arm_link4"/>
+        <origin xyz="0 0 0.1005" rpy="0 0 0"/>
+        <axis xyz="0 0 1"/>
+        <limit effort="10" velocity="1.0" lower="-1.57" upper="1.57"/>
+    </joint>
+    
+
+    <link name="arm_link5">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://oroca_manipulator_description/meshes/arm_link5.stl" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <mesh filename="package://oroca_manipulator_description/meshes/arm_link5.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="1.0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+    </link>
+
+    <joint name="arm_joint5" type="revolute">
+        <parent link="arm_link4"/>
+        <child link="arm_link5"/>
+        <origin xyz="0 0 0.0945" rpy="0 0 0"/>
+        <axis xyz="0 1 0"/>
+        <limit effort="10" velocity="1.0" lower="-1.57" upper="1.57"/>
+    </joint>
+    
+    <link name="gripper_l_outer_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 1.57"/>
+            <geometry>
+                <mesh filename="package://oroca_manipulator_description/meshes/gripper_outer_link.stl" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 1.57"/>
+            <geometry>
+                <mesh filename="package://oroca_manipulator_description/meshes/gripper_outer_link.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="1.0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+    </link>
+
+    <joint name="gripper_joint" type="revolute">
+        <parent link="arm_link5"/>
+        <child link="gripper_l_outer_link"/>
+        <origin xyz="0 0.014 0.052" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit effort="10" velocity="1.0" lower="0.0" upper="1.57"/>
+    </joint>
+    
+
+    <link name="gripper_r_outer_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 -1.57"/>
+            <geometry>
+                <mesh filename="package://oroca_manipulator_description/meshes/gripper_outer_link.stl" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 -1.57"/>
+            <geometry>
+                <mesh filename="package://oroca_manipulator_description/meshes/gripper_outer_link.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="1.0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+    </link>
+
+    <joint name="gripper_r_outer_joint" type="revolute">
+        <parent link="arm_link5"/>
+        <child link="gripper_r_outer_link"/>
+        <origin xyz="0 -0.014 0.052" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit effort="10" velocity="1.0" lower="-1.57" upper="0"/>
+        <mimic joint="gripper_joint" multiplier="-1" offset="0"/>
+    </joint>
+
+    <link name="gripper_l_inner_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 1.57"/>
+            <geometry>
+                <mesh filename="package://oroca_manipulator_description/meshes/gripper_inner_link.stl" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 1.57"/>
+            <geometry>
+                <mesh filename="package://oroca_manipulator_description/meshes/gripper_inner_link.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="1.0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+    </link>
+
+    <joint name="gripper_l_inner_joint" type="revolute">
+        <parent link="arm_link5"/>
+        <child link="gripper_l_inner_link"/>
+        <origin xyz="0 0.007 0.072" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit effort="10" velocity="1.0" lower="0" upper="1.57"/>
+        <mimic joint="gripper_joint" multiplier="1" offset="0"/>
+    </joint>
+    
+
+    <link name="gripper_r_inner_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 -1.57"/>
+            <geometry>
+                <mesh filename="package://oroca_manipulator_description/meshes/gripper_inner_link.stl" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 -1.57"/>
+            <geometry>
+                <mesh filename="package://oroca_manipulator_description/meshes/gripper_inner_link.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="1.0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+    </link>
+
+    <joint name="gripper_r_inner_joint" type="revolute">
+        <parent link="arm_link5"/>
+        <child link="gripper_r_inner_link"/>
+        <origin xyz="0 -0.007 0.072" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit effort="10" velocity="1.0" lower="-1.57" upper="0"/>
+        <mimic joint="gripper_joint" multiplier="-1" offset="0"/>
+    </joint>
+   
+
+
+    <link name="gripper_l_finger_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 1.57"/>
+            <geometry>
+                <mesh filename="package://oroca_manipulator_description/meshes/gripper_finger.stl" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 $1.57"/>
+            <geometry>
+                <mesh filename="package://oroca_manipulator_description/meshes/gripper_finger.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="1.0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+    </link>
+
+    <joint name="gripper_l_finger_joint" type="revolute">
+        <parent link="gripper_l_outer_link"/>
+        <child link="gripper_l_finger_link"/>
+        <origin xyz="0 0.040 0" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit effort="10" velocity="1.0" lower="-1.57" upper="1.57"/>
+        <mimic joint="gripper_joint" multiplier="-1" offset="0"/>
+    </joint>
+    
+
+    <link name="gripper_r_finger_link">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 -1.57"/>
+            <geometry>
+                <mesh filename="package://oroca_manipulator_description/meshes/gripper_finger.stl" scale="1 1 1"/>
+            </geometry>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 -1.57"/>
+            <geometry>
+                <mesh filename="package://oroca_manipulator_description/meshes/gripper_finger.stl" scale="1 1 1"/>
+            </geometry>
+        </collision>
+        <inertial>
+            <mass value="1.0"/>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <inertia ixx="1.0" ixy="0.0" ixz="0.0" iyy="1.0" iyz="0.0" izz="1.0"/>
+        </inertial>
+    </link>
+
+    <joint name="gripper_r_finger_joint" type="revolute">
+        <parent link="gripper_r_outer_link"/>
+        <child link="gripper_r_finger_link"/>
+        <origin xyz="0 -0.040 0" rpy="0 0 0"/>
+        <axis xyz="1 0 0"/>
+        <limit effort="10" velocity="1.0" lower="-1.57" upper="1.57"/>
+        <mimic joint="gripper_joint" multiplier="1" offset="0"/>
+    </joint>
+    
+    <link name="eef"/>
+
+    <joint name="eef_fixed_joint" type="fixed">
+        <parent link="arm_link5"/>
+        <child link="eef"/>
+        <origin xyz="0 0 0.130" rpy="0 0 0"/>
+    </joint>
+	
+	<gazebo>
+    <plugin name="MimicJointPlugin" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
+      joint="gripper_joint"
+      mimicJoint="gripper_r_outer_joint"
+      multiplier="-1"
+      offset="0"
+    </plugin>
+    
+	<plugin name="MimicJointPlugin" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
+      joint="gripper_joint"
+      mimicJoint="gripper_l_inner_joint"
+      multiplier="1"
+      offset="0"
+    </plugin>
+	
+	<plugin name="MimicJointPlugin" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
+      joint="gripper_joint"
+      mimicJoint="gripper_r_inner_joint"
+      multiplier="-1"
+      offset="0"
+    </plugin>
+	
+	<plugin name="MimicJointPlugin" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
+      joint="gripper_joint"
+      mimicJoint="gripper_l_finger_joint"
+      multiplier="-1"
+      offset="0"
+    </plugin>
+	
+	<plugin name="MimicJointPlugin" filename="libroboticsgroup_gazebo_mimic_joint_plugin.so">
+      joint="gripper_joint"
+      mimicJoint="gripper_r_finger_joint"
+      multiplier="1"
+      offset="0"
+    </plugin>
+	
+	
+  </gazebo>
+	
+	
+	
+</robot>
